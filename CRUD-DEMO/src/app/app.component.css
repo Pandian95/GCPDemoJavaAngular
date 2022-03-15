@@ -1,0 +1,104 @@
+.edit-icon {
+  background-image: url("../assets/icons/edit.png");
+  display: inline-block;
+  background-size: 20px 20px;
+  height: 20px;
+  width: 20px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.del-icon {
+  background-image: url("../assets/icons/delete-button.png");
+  display: inline-block;
+  background-size: 20px 20px;
+  height: 20px;
+  width: 20px;
+  background-repeat: no-repeat;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.table-container table {
+  max-height: 500px;
+  border: 1px solid #d3d3d3;
+  width: 100%;
+}
+.table-container .table-scroll {
+  position: relative;
+  max-height: 75vh;
+  overflow-y: scroll;
+  box-shadow: 3px 3px 7px 3px #d3d3d3;
+  margin-top: 15px;
+}
+.table-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+}
+.header-row {
+  background-color: #444791;
+  color: white;
+  font-size: 21px;
+}
+.table-container table tbody > tr:nth-child(odd) {
+  background-color: white;
+}
+.table-container table tbody > tr:nth-child(even) {
+  background-color: #edeeff;
+}
+.modal-container {
+  position: absolute;
+  z-index: 9999;
+  top: 25%;
+  background-color: white;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  border: 2px solid #444791;
+  border-radius: 7px;
+}
+.delete-container {
+  padding: 20px 50px;
+  text-align: center;
+}
+.form-container {
+  padding: 20px 50px;
+  text-align: left;
+}
+.form-container .form-label {
+  display: block;
+  margin-bottom: 15px;
+}
+.form-container span {
+  width: 150px;
+  display: inline-block;
+  font-weight: bold;
+}
+.form-container input {
+  width: 260px;
+  padding: 7px;
+}
+.modal-header {
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  font-weight: bold;
+  background-color: #444791;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  font-size: 22px;
+}
+.save-btn {
+  text-align: center;
+  margin-top: 10px;
+}
+.invalid-input {
+  border: 2px solid red;
+}
+.body-container {
+  margin: 1% 11%;
+  height: 100%;
+}

@@ -1,0 +1,107 @@
+<h1 class="page-hdr">Employee Details</h1>
+<!--Form modal-->
+<div
+  class="modal-container"
+  *ngIf="isModalShow"
+  (click)="preventModalClose($event)"
+>
+  <label class="modal-header">{{ modalHeader }}</label>
+  <form
+    class="form-container"
+    [formGroup]="employeeForm"
+    (submit)="onSaveClick()"
+  >
+    <label class="form-label">
+      <span>Employee Name</span
+      ><input
+        type="text"
+        formControlName="name"
+        required
+        [ngClass]="{
+          'invalid-input':
+            !employeeForm.controls['name'].valid && isTriggerValidation
+        }"
+      />
+    </label>
+    <label class="form-label">
+      <span>Designation</span
+      ><input
+        type="text"
+        required
+        [ngClass]="{
+          'invalid-input':
+            !employeeForm.controls['designation'].valid && isTriggerValidation
+        }"
+        formControlName="designation"
+      />
+    </label>
+    <label class="form-label">
+      <span> Address </span
+      ><input
+        type="text"
+        required
+        [ngClass]="{
+          'invalid-input':
+            !employeeForm.controls['address'].valid && isTriggerValidation
+        }"
+        formControlName="address"
+      />
+    </label>
+    <div class="save-btn"><button type="submit">Save</button></div>
+  </form>
+</div>
+<!--Delete modal-->
+<div
+  class="modal-container"
+  *ngIf="isDeleteModalShow"
+  (click)="preventModalClose($event)"
+>
+  <label class="modal-header">Delete Employee</label>
+  <div class="delete-container">
+    <div><h3>Are you sure you want to delete the record?</h3></div>
+    <div class="save-btn">
+      <button (click)="onDeleteApprove()">Yes</button>
+      <button (click)="onDeleteCancel()" style="margin-left: 15px">No</button>
+    </div>
+  </div>
+</div>
+
+<!--Table section-->
+<div class="body-container">
+  <div class="table-container">
+    <div>
+      <button class="flt-right" (click)="onAddClick($event)">
+        Add Employee
+      </button>
+    </div>
+    <div class="table-scroll" *ngIf="gridData && gridData.length > 0">
+      <table>
+        <thead>
+          <tr class="header-row">
+            <th>Employee Name</th>
+            <th>Designation</th>
+            <th>Address</th>
+            <th style="width: 150px">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rowData of gridData">
+            <td style="text-align: center">{{ rowData.name }}</td>
+            <td style="text-align: center">{{ rowData.designation }}</td>
+            <td style="text-align: center">{{ rowData.address }}</td>
+            <td style="text-align: center">
+              <i class="edit-icon" (click)="onEditClick($event, rowData)"></i
+              ><i class="del-icon" (click)="onDeleteClick($event, rowData)"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div
+      class="empty-record-container"
+      *ngIf="!gridData || gridData.length == 0"
+    >
+      No Records Found
+    </div>
+  </div>
+</div>
